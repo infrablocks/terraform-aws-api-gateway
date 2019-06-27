@@ -9,6 +9,6 @@ describe 'API Gateway' do
 
   subject {apigateway(name)}
 
-  # it {should exist}
+  it {should exist}
 
 end
