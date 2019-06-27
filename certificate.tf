@@ -12,6 +12,7 @@ resource "aws_acm_certificate" "certificate" {
   lifecycle {
     create_before_destroy = true
   }
+  count = "${var.create_custom_domain == "yes" ? 1 : 0}"
 }
 
 resource "aws_route53_record" "cert_validation" {
@@ -21,10 +22,12 @@ resource "aws_route53_record" "cert_validation" {
   records  = ["${aws_acm_certificate.certificate.domain_validation_options.0.resource_record_value}"]
   ttl      = 60
   provider = "aws.useast1"
+  count = "${var.create_custom_domain == "yes" ? 1 : 0}"
 }
 
 resource "aws_acm_certificate_validation" "cert" {
   certificate_arn         = "${aws_acm_certificate.certificate.arn}"
   validation_record_fqdns = ["${aws_route53_record.cert_validation.fqdn}"]
   provider                = "aws.useast1"
+  count = "${var.create_custom_domain == "yes" ? 1 : 0}"
 }

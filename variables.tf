@@ -26,3 +26,8 @@ variable "endpoint_types" {
   description = "ist of endpoint types. This resource currently only supports managing a single value. Valid values: EDGE, REGIONAL or PRIVATE"
   default     = "REGIONAL"
 }
+
+variable "create_custom_domain" {
+  description = "Create custom domain for the API gateway."
+  default = "yes"
+}

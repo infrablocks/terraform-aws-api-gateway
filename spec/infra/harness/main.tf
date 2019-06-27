@@ -14,4 +14,5 @@ module "api_gateway" {
   domain_name           = "${var.domain_name}"
   subdomain             = "${var.subdomain}"
   public_zone_id        = "${var.public_zone_id}"
+  create_custom_domain     = "${var.create_custom_domain}"
 }
