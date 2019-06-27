@@ -4,6 +4,5 @@ provider "aws" {
 
 provider "aws" {
   region  = "us-east-1"
-  version = "2.7"
   alias   = "useast1"
 }
