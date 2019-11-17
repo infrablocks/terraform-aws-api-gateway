@@ -1,7 +1,7 @@
 output "name" {
-  value = "${module.api_gateway.name}"
+  value = module.api_gateway.name
 }
 
 output "id" {
-  value = "${module.api_gateway.id}"
+  value = module.api_gateway.id
 }
