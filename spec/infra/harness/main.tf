@@ -7,16 +7,16 @@ data "terraform_remote_state" "prerequisites" {
 }
 
 module "api_gateway" {
-  source                = "../../../../"
+  source = "../../../../"
 
-  region                = var.region
+  region = var.region
 
-  component             = var.component
+  component = var.component
   deployment_identifier = var.deployment_identifier
 
-  domain_name           = var.domain_name
-  subdomain             = var.subdomain
-  public_zone_id        = var.public_zone_id
+  domain_name = var.domain_name
+  subdomain = var.subdomain
+  public_zone_id = var.public_zone_id
 
-  create_custom_domain     = var.create_custom_domain
+  create_custom_domain = var.create_custom_domain
 }
