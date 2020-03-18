@@ -29,7 +29,8 @@ variable "endpoint_types" {
 
 variable "create_custom_domain" {
   description = "Create custom domain for the API gateway."
-  default     = "yes"
+  type        = bool
+  default     = true
 }
 
 variable "acm_arn" {
