@@ -16,21 +16,19 @@ resource "aws_acm_certificate" "certificate" {
 }
 
 resource "aws_route53_record" "cert_validation" {
-  count = var.create_acm ? 0 : 1
   name     = aws_acm_certificate.certificate[0].domain_validation_options[0].resource_record_name
   type     = aws_acm_certificate.certificate[0].domain_validation_options[0].resource_record_type
   zone_id  = var.public_zone_id
   records  = [aws_acm_certificate.certificate[0].domain_validation_options[0].resource_record_value]
   ttl      = 60
   provider = aws.useast1
-  count    = var.create_custom_domain == "yes" ? 1 : 0
+  count    = var.create_custom_domain == "yes" && var.create_acm != false ? 1 : 0
 }
 
 resource "aws_acm_certificate_validation" "cert" {
-  count = var.create_acm ? 0 : 1
   certificate_arn         = aws_acm_certificate.certificate[0].arn
   validation_record_fqdns = [aws_route53_record.cert_validation[0].fqdn]
   provider                = aws.useast1
-  count                   = var.create_custom_domain == "yes" ? 1 : 0
+  count                   = var.create_custom_domain == "yes" && var.create_acm != false ? 1 : 0
 }
 
