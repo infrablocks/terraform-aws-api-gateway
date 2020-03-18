@@ -1,4 +1,5 @@
 resource "aws_acm_certificate" "certificate" {
+  count = var.create_acm ? 1 : 0
   domain_name       = "${var.subdomain}.${var.domain_name}"
   validation_method = "DNS"
   provider          = aws.useast1
@@ -16,6 +17,7 @@ resource "aws_acm_certificate" "certificate" {
 }
 
 resource "aws_route53_record" "cert_validation" {
+  count = var.create_acm ? 1 : 0
   name     = aws_acm_certificate.certificate[0].domain_validation_options[0].resource_record_name
   type     = aws_acm_certificate.certificate[0].domain_validation_options[0].resource_record_type
   zone_id  = var.public_zone_id
@@ -26,6 +28,7 @@ resource "aws_route53_record" "cert_validation" {
 }
 
 resource "aws_acm_certificate_validation" "cert" {
+  count = var.create_acm ? 1 : 0
   certificate_arn         = aws_acm_certificate.certificate[0].arn
   validation_record_fqdns = [aws_route53_record.cert_validation[0].fqdn]
   provider                = aws.useast1

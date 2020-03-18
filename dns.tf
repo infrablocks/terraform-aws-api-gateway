@@ -1,5 +1,6 @@
 resource "aws_api_gateway_domain_name" "domain_name_resource" {
-  certificate_arn = aws_acm_certificate_validation.cert[0].certificate_arn
+  certificate_arn = var.acm_arn ? var.acm_arn : aws_acm_certificate_validation.cert[0].certificate_arn
+  var.single_nat_gateway ? 1 : var.one_nat_gateway_per_az ? length(var.azs) : local.max_subnet_length
   domain_name     = "${var.subdomain}.${var.domain_name}"
   count           = var.create_custom_domain == "yes" ? 1 : 0
 }

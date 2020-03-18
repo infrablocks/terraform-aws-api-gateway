@@ -32,3 +32,13 @@ variable "create_custom_domain" {
   default     = "yes"
 }
 
+variable "acm_arn" {
+  description = "custom acm"
+  default     = "arn:aws:acm:us-east-1:073175434048:certificate/515da2c4-46af-4dac-9334-eeb00621b5b7"
+}
+
+variable "create_acm" {
+  description = "Create acm"
+  type        = bool
+  default     = true
+}
