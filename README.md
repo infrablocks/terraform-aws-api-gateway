@@ -29,6 +29,9 @@ module "api_gateway" {
   component             = "api-gw"
   deployment_identifier = "production"
   domain_name           = "example.com"
+  create_custom_domain  = true
+  create_acm            = false
+  acm_arn               = data.aws_acm_certificate.crt-subdomain.arn
   subdomain             = "api.production"
   public_zone_id        = "AAAABBBCCCCCC"
 }
