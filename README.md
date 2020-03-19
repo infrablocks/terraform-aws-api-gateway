@@ -48,6 +48,9 @@ module "api_gateway" {
 | domain_name| The domain name of the supplied Route 53 zones | - | yes|
 | subdomain| The subdomain name for the API to be used as custom domain name| - | yes |
 | public_zone_id|The ID of the public Route 53 zone |- | yes |
+| create_custom_domain|Conditional to create subdomain |- | yes |
+| create_acm |Conditional to create certicate |- | yes |
+| acm_arn| ARN to custom certificate |- | yes |
 | endpoint_types| ist of endpoint types. This resource currently only supports managing a single value. Valid values: EDGE, REGIONAL or PRIVATE| REGIONAL| no|
 
 
