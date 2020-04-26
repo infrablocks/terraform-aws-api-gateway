@@ -55,6 +55,7 @@ module "api_gateway" {
 | name                                    | The name of the created API Gateway                               |
 | id                                     | The id of the created API Gateway                               |
 | address                                 | The address of the deployed API Gateway      |
+| certificate_arn                         | The ARN of the created Service Certificate                |
 
 
 Development
