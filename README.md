@@ -54,7 +54,7 @@ module "api_gateway" {
 |-----------------------------------------|-----------------------------------------------------------|
 | name                                    | The name of the created API Gateway                               |
 | id                                     | The id of the created API Gateway                               |
-| address                                 | The address of the deployed API Gateway      |
+| root_resource_id                                 | The resource ID of the REST API's root      |
 
 
 Development
