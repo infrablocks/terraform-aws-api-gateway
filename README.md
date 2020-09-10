@@ -24,7 +24,7 @@ configuration:
 
 ```hcl-terraform
 module "api_gateway" {
-  source  = "infrablocks/network-load-balancer/aws"
+  source  = "infrablocks/api-gateway/aws"
   region                = "eu-west-2"
   component             = "api-gw"
   deployment_identifier = "production"
@@ -52,10 +52,10 @@ module "api_gateway" {
 
 | Name                                    | Description                                               |
 |-----------------------------------------|-----------------------------------------------------------|
-| name                                    | The name of the created API Gateway                               |
-| id                                     | The id of the created API Gateway                               |
-| address                                 | The address of the deployed API Gateway      |
+| name                                    | The name of the created API Gateway                       |
+| id                                      | The id of the created API Gateway                         |
 | certificate_arn                         | The ARN of the created Service Certificate                |
+| root_resource_id                        | The resource ID of the REST API's root                    |
 
 
 Development
@@ -181,7 +181,7 @@ openssl aes-256-cbc \
 Contributing
 ------------
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/infrablocks/terraform-aws-network-load-balancer. 
+Bug reports and pull requests are welcome on GitHub at https://github.com/infrablocks/terraform-aws-api-gateway. 
 This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to 
 the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
