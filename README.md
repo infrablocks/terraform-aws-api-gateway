@@ -37,26 +37,25 @@ module "api_gateway" {
 
 ### Inputs
 
-| Name                             | Description                                                                   | Default             | Required                             |
-|----------------------------------|-------------------------------------------------------------------------------|:-------------------:|:------------------------------------:|
-| region                           | The region into which to deploy the API gateway                             | -                   | yes                                  |
-| component| The component for which the load balancer is being created    |- | yes|
-| deployment_identifier|An identifier for this instantiation                                           |- | yes |
-| domain_name| The domain name of the supplied Route 53 zones | - | yes|
-| subdomain| The subdomain name for the API to be used as custom domain name| - | yes |
-| public_zone_id|The ID of the public Route 53 zone |- | yes |
-| endpoint_types| ist of endpoint types. This resource currently only supports managing a single value. Valid values: EDGE, REGIONAL or PRIVATE| REGIONAL| no|
+| Name                  | Description                                                                                                                    | Default  | Required    |
+|-----------------------|--------------------------------------------------------------------------------------------------------------------------------|:--------:|:-----------:|
+| region                | The region into which to deploy the API gateway                                                                                | -        | yes         |
+| component             | The component for which the load balancer is being created                                                                     | -        | yes         |
+| deployment_identifier | An identifier for this instantiation                                                                                           | -        | yes         |
+| domain_name           | The domain name of the supplied Route 53 zones                                                                                 | -        | yes         |
+| subdomain             | The subdomain name for the API to be used as custom domain name                                                                | -        | yes         |
+| public_zone_id        | The ID of the public Route 53 zone                                                                                             | -        | yes         |
+| endpoint_types        | List of endpoint types. This resource currently only supports managing a single value. Valid values: EDGE, REGIONAL or PRIVATE | REGIONAL | no          |
 
 
 ### Outputs
 
-| Name                                    | Description                                               |
-|-----------------------------------------|-----------------------------------------------------------|
-| name                                    | The name of the created API Gateway                       |
-| id                                      | The id of the created API Gateway                         |
-| certificate_arn                         | The ARN of the created Service Certificate                |
-| root_resource_id                        | The resource ID of the REST API's root                    |
-
+| Name             | Description                                |
+|------------------|--------------------------------------------|
+| name             | The name of the created API Gateway        |
+| id               | The id of the created API Gateway          |
+| certificate_arn  | The ARN of the created Service Certificate |
+| root_resource_id | The resource ID of the REST API's root     |
 
 Development
 -----------
