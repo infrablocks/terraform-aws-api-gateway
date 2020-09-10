@@ -24,7 +24,7 @@ configuration:
 
 ```hcl-terraform
 module "api_gateway" {
-  source  = "infrablocks/network-load-balancer/aws"
+  source  = "infrablocks/api-gateway/aws"
   region                = "eu-west-2"
   component             = "api-gw"
   deployment_identifier = "production"
@@ -180,7 +180,7 @@ openssl aes-256-cbc \
 Contributing
 ------------
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/infrablocks/terraform-aws-network-load-balancer. 
+Bug reports and pull requests are welcome on GitHub at https://github.com/infrablocks/terraform-aws-api-gateway. 
 This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to 
 the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
