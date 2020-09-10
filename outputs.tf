@@ -13,3 +13,7 @@ output "root_resource_id" {
   value       = aws_api_gateway_rest_api.api.root_resource_id
 }
 
+output "certificate_arn" {
+  description = "The ARN of the created Service Certificate"
+  value       = aws_acm_certificate.certificate[0].arn
+}

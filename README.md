@@ -52,9 +52,10 @@ module "api_gateway" {
 
 | Name                                    | Description                                               |
 |-----------------------------------------|-----------------------------------------------------------|
-| name                                    | The name of the created API Gateway                               |
-| id                                     | The id of the created API Gateway                               |
-| root_resource_id                                 | The resource ID of the REST API's root      |
+| name                                    | The name of the created API Gateway                       |
+| id                                      | The id of the created API Gateway                         |
+| certificate_arn                         | The ARN of the created Service Certificate                |
+| root_resource_id                        | The resource ID of the REST API's root                    |
 
 
 Development
