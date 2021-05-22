@@ -12,6 +12,7 @@
 vendor/
 build/
 dist/
+.bundle
 
 # OS
 .DS_Store
