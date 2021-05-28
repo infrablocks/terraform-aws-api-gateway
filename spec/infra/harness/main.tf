@@ -20,4 +20,5 @@ module "api_gateway" {
   public_zone_id = var.public_zone_id
 
   create_custom_domain = var.create_custom_domain
+  create_certificate = var.create_certificate
 }
