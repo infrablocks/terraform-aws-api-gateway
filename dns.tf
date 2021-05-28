@@ -1,5 +1,5 @@
 resource "aws_api_gateway_domain_name" "domain_name_resource" {
-  certificate_arn = aws_acm_certificate_validation.cert[0].certificate_arn
+  certificate_arn = var.create_certificate == "yes" ? aws_acm_certificate_validation.cert[0].certificate_arn : var.certificate_arn
   domain_name     = each.value
   for_each        = var.create_custom_domain == "yes" ? toset([local.address]) : toset([])
 }

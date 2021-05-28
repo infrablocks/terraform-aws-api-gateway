@@ -6,36 +6,36 @@ Terraform AWS API Gateway
 A Terraform module for building a API gateway in AWS.
 
 The API gateway requires:
+
 * An existing VPC
 * Some existing subnets
 * A domain name and public and private hosted zones
- 
+
 The API gateway consists of:
+
 * Rest api
 * ACM certificate
 * Custom DNS
 
-
 Usage
 -----
 
-To use the module, include something like the following in your terraform 
-configuration:
+To use the module, include something like the following in your terraform configuration:
 
 ```hcl-terraform
 module "api_gateway" {
-  source  = "infrablocks/api-gateway/aws"
-  region                = "eu-west-2"
-  component             = "api-gw"
+  source = "infrablocks/api-gateway/aws"
+  region = "eu-west-2"
+  component = "api-gw"
   deployment_identifier = "production"
-  domain_name           = "example.com"
-  subdomain             = "api.production"
-  public_zone_id        = "AAAABBBCCCCCC"
+  domain_name = "example.com"
+  subdomain = "api.production"
+  public_zone_id = "AAAABBBCCCCCC"
 }
 ```
 
-See the 
-[Terraform registry entry](https://registry.terraform.io/modules/infrablocks/api-gateway/aws/latest) 
+See the
+[Terraform registry entry](https://registry.terraform.io/modules/infrablocks/api-gateway/aws/latest)
 for more details.
 
 ### Inputs
@@ -49,7 +49,9 @@ for more details.
 | subdomain             | The subdomain name for the API to be used as custom domain name                                                                | -        | yes         |
 | public_zone_id        | The ID of the public Route 53 zone                                                                                             | -        | yes         |
 | endpoint_types        | List of endpoint types. This resource currently only supports managing a single value. Valid values: EDGE, REGIONAL or PRIVATE | REGIONAL | no          |
-
+| create_custom_domain  |Create custom domain for the API gateway.                                                                                       | yes      | no          |
+| create_certificate    |Create certificate for api gateway custom domain                                                                                | yes      | no          |
+| certificate_arn       |ARN for the custom domain certificate                                                                                           | -        | no          |
 
 ### Outputs
 
@@ -62,16 +64,14 @@ for more details.
 
 ### Compatibility
 
-This module is compatible with Terraform versions greater than or equal to 
-Terraform 0.14.
+This module is compatible with Terraform versions greater than or equal to Terraform 0.14.
 
 Development
 -----------
 
 ### Machine Requirements
 
-In order for the build to run correctly, a few tools will need to be installed 
-on your development machine:
+In order for the build to run correctly, a few tools will need to be installed on your development machine:
 
 * Ruby (2.3.1)
 * Bundler
@@ -120,8 +120,7 @@ direnv allow <repository-directory>
 
 ### Running the build
 
-To provision module infrastructure, run tests and then destroy that infrastructure,
-execute:
+To provision module infrastructure, run tests and then destroy that infrastructure, execute:
 
 ```bash
 ./go
@@ -150,7 +149,6 @@ To destroy the module prerequisites:
 ```bash
 ./go deployment:prerequisites:destroy[<deployment_identifier>]
 ```
-
 
 ### Common Tasks
 
@@ -189,14 +187,13 @@ Contributing
 ------------
 
 Bug reports and pull requests are welcome on GitHub at
-https://github.com/infrablocks/terraform-aws-api-gateway. This project is 
-intended to be a safe, welcoming space for collaboration, and contributors are 
-expected to adhere to the 
+https://github.com/infrablocks/terraform-aws-api-gateway. This project is intended to be a safe, welcoming space for
+collaboration, and contributors are expected to adhere to the
 [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 License
 -------
 
-The library is available as open source under the terms of the 
+The library is available as open source under the terms of the
 [MIT License](http://opensource.org/licenses/MIT).

@@ -32,3 +32,13 @@ variable "create_custom_domain" {
   default     = "yes"
 }
 
+variable "create_certificate" {
+  description = "Create certificate for api gateway custom domain "
+  default     = "yes"
+}
+
+variable "certificate_arn" {
+  description = "Optional ARN for the custom domain certificate"
+  default     = ""
+}
+

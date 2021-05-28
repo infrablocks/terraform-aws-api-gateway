@@ -12,7 +12,7 @@ resource "aws_acm_certificate" "certificate" {
   lifecycle {
     create_before_destroy = true
   }
-  for_each = var.create_custom_domain == "yes" ? toset([local.address]) : toset([])
+  for_each = var.create_certificate == "yes" ? toset([local.address]) : toset([])
 }
 
 resource "aws_route53_record" "cert_validation" {
@@ -22,13 +22,13 @@ resource "aws_route53_record" "cert_validation" {
   records  = [aws_acm_certificate.certificate[each.value].domain_validation_options[0].resource_record_value]
   ttl      = 60
   provider = aws.certificate
-  for_each = var.create_custom_domain == "yes" ? toset([local.address]) : toset([])
+  for_each = var.create_certificate == "yes" ? toset([local.address]) : toset([])
 }
 
 resource "aws_acm_certificate_validation" "cert" {
   certificate_arn         = aws_acm_certificate.certificate[each.value].arn
   validation_record_fqdns = [aws_route53_record.cert_validation[each.value].fqdn]
   provider                = aws.certificate
-  for_each                = var.create_custom_domain == "yes" ? toset([local.address]) : toset([])
+  for_each                = var.create_certificate == "yes" ? toset([local.address]) : toset([])
 }
 
