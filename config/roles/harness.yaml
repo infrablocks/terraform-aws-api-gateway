@@ -12,3 +12,4 @@ vars:
   public_zone_id: "%{hiera('public_zone_id')}"
 
   create_custom_domain: 'no'
+  create_certificate: 'no'
