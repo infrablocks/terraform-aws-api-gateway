@@ -1,6 +1,6 @@
 ---
-source_directory: "spec/infra/harness"
-state_file: "%{hiera('project_directory')}/state/harness.tfstate"
+configuration_directory: "%{cwd}/spec/unit/infra/root"
+state_file: "%{cwd}/state/root.tfstate"
 vars:
   region: "%{hiera('region')}"
 
@@ -10,6 +10,3 @@ vars:
   domain_name: "%{hiera('domain_name')}"
   subdomain: "%{hiera('subdomain')}"
   public_zone_id: "%{hiera('public_zone_id')}"
-
-  create_custom_domain: 'no'
-  create_certificate: 'no'
