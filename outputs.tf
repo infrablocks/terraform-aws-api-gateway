@@ -15,5 +15,5 @@ output "root_resource_id" {
 
 output "certificate_arn" {
   description = "The ARN of the created Service Certificate"
-  value       = var.create_certificate == "yes" ? aws_acm_certificate.certificate.0.arn : ""
+  value       = try(aws_acm_certificate.certificate[local.address].arn, "")
 }
