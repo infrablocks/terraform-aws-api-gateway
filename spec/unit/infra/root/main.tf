@@ -7,8 +7,7 @@ data "terraform_remote_state" "prerequisites" {
 }
 
 module "api_gateway" {
-  # This makes absolutely no sense. I think there's a bug in terraform.
-  source = "./../../../../../../../"
+  source = "../../../.."
 
   region = var.region
 

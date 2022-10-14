@@ -1,3 +1,3 @@
 locals {
-  address = "${var.subdomain}.${var.domain_name}"
+  address = lower("${var.subdomain}.${var.domain_name}")
 }
