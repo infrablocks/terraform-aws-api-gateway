@@ -14,10 +14,9 @@ module "api_gateway" {
   component = var.component
   deployment_identifier = var.deployment_identifier
 
-  domain_name = var.domain_name
-  subdomain = var.subdomain
-  public_zone_id = var.public_zone_id
+  api_gateway_rest_api_endpoint_type = var.api_gateway_rest_api_endpoint_type
 
-  create_custom_domain = var.create_custom_domain
-  create_certificate = var.create_certificate
+  api_gateway_rest_api_source_policy_document = var.api_gateway_rest_api_source_policy_document
+
+  include_api_gateway_rest_api_policy = var.include_api_gateway_rest_api_policy
 }

@@ -1,44 +1,29 @@
 variable "region" {
-  description = "The region into which to deploy the api gateway."
-}
-
-variable "public_zone_id" {
-  description = "The ID of the public Route 53 zone."
-}
-
-variable "subdomain" {
-  description = "The subdomain of the api gateway."
-}
-
-variable "domain_name" {
-  description = "The domain name of the supplied Route 53 zones."
+  description = "The region into which to deploy the API gateway REST API."
 }
 
 variable "component" {
-  description = "The component for which the api gateway is being created."
+  description = "The component for which the API gateway REST API is being created."
 }
 
 variable "deployment_identifier" {
   description = "An identifier for this instantiation."
 }
 
-variable "endpoint_types" {
-  description = "ist of endpoint types. This resource currently only supports managing a single value. Valid values: EDGE, REGIONAL or PRIVATE"
-  default     = "REGIONAL"
+variable "api_gateway_rest_api_endpoint_type" {
+  description = "The type of the endpoints in this REST API. Valid values: EDGE, REGIONAL or PRIVATE. Defaults to EDGE."
+  default     = "EDGE"
+  nullable    = false
 }
 
-variable "create_custom_domain" {
-  description = "Create custom domain for the API gateway."
-  default     = "yes"
-}
-
-variable "create_certificate" {
-  description = "Create certificate for api gateway custom domain "
-  default     = "yes"
-}
-
-variable "certificate_arn" {
-  description = "Optional ARN for the custom domain certificate"
+variable "api_gateway_rest_api_source_policy_document" {
+  description = "A source policy document for the policy associated with the REST API. Only required if `include_api_gateway_rest_api_policy` is true."
   default     = ""
+  nullable    = false
 }
 
+variable "include_api_gateway_rest_api_policy" {
+  description = "Whether or not to include an IAM policy on the REST API. Defaults to false."
+  default     = false
+  nullable    = false
+}

@@ -11,21 +11,15 @@ describe 'full' do
     destroy(role: :full)
   end
 
-  let(:api_gateway_name) do
-    output(role: :full, name: 'api_gateway_name')
+  let(:api_gateway_rest_api_name) do
+    output(role: :full, name: 'api_gateway_rest_api_name')
   end
-  let(:api_gateway_certificate_arn) do
-    output(role: :full, name: 'api_gateway_certificate_arn')
+  let(:certificate_arn) do
+    output(role: :full, name: 'certificate_arn')
   end
 
   describe 'API gateway' do
-    subject { apigateway(api_gateway_name) }
-
-    it { is_expected.to exist }
-  end
-
-  describe 'certificate' do
-    subject { acm(api_gateway_certificate_arn) }
+    subject { apigateway(api_gateway_rest_api_name) }
 
     it { is_expected.to exist }
   end

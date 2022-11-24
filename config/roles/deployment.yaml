@@ -1,6 +1,6 @@
 ---
-configuration_directory: "%{cwd}/spec/unit/infra/root"
-state_file: "%{cwd}/state/root.tfstate"
+configuration_directory: "%{cwd}/spec/unit/infra/deployment"
+state_file: "%{cwd}/state/deployment.tfstate"
 vars:
   region: "%{hiera('region')}"
 

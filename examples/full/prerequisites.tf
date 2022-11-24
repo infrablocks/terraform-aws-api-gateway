@@ -1,12 +1,3 @@
-resource "aws_api_gateway_rest_api" "api" {
-  name          = "provided-rest-api-${var.component}-${var.deployment_identifier}"
-  description   = "Provided REST API for component: \"${var.component}\" and deployment identifier: \"${var.deployment_identifier}\"."
-
-  endpoint_configuration {
-    types = ["REGIONAL"]
-  }
-}
-
 module "certificate" {
   source  = "infrablocks/acm-certificate/aws"
   version = "1.2.0-rc.1"
