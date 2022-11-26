@@ -1,0 +1,5 @@
+---
+configuration_directory: "%{cwd}/spec/unit/infra/log_permissions"
+state_file: "%{cwd}/state/log_permissions.tfstate"
+vars:
+  region: "%{hiera('region')}"

@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe 'mapping' do
+describe 'DNS records' do
   describe 'by default' do
     before(:context) do
       @api_gateway_rest_api_id =

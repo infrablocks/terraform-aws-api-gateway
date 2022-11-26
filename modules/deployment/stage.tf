@@ -6,6 +6,11 @@ resource "aws_api_gateway_stage" "stage" {
 
   deployment_id = aws_api_gateway_deployment.deployment.id
 
+  access_log_settings {
+    destination_arn = ""
+    format          = ""
+  }
+
   tags = merge(local.resolved_tags, {
     Stage: var.api_gateway_stage_name
   })
