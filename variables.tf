@@ -15,6 +15,11 @@ variable "api_gateway_rest_api_endpoint_type" {
   default     = "EDGE"
   nullable    = false
 }
+variable "api_gateway_rest_api_vpc_endpoint_ids" {
+  description = "The VPC endpoint IDs to associate with the REST API when it is deployed privately. Required when `api_gateway_rest_api_endpoint_type` is \"PRIVATE\"."
+  type = list(string)
+  default = null
+}
 
 variable "api_gateway_rest_api_source_policy_document" {
   description = "A source policy document for the policy associated with the REST API. Only required if `include_api_gateway_rest_api_policy` is true."

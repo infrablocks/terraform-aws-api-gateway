@@ -15,6 +15,7 @@ module "api_gateway" {
   deployment_identifier = var.deployment_identifier
 
   api_gateway_rest_api_endpoint_type = var.api_gateway_rest_api_endpoint_type
+  api_gateway_rest_api_vpc_endpoint_ids = var.api_gateway_rest_api_vpc_endpoint_ids
 
   api_gateway_rest_api_source_policy_document = var.api_gateway_rest_api_source_policy_document
 

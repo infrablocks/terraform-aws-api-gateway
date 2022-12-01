@@ -4,5 +4,6 @@ resource "aws_api_gateway_rest_api" "api" {
 
   endpoint_configuration {
     types = [var.api_gateway_rest_api_endpoint_type]
+    vpc_endpoint_ids = var.api_gateway_rest_api_endpoint_type == "PRIVATE" ? toset(var.api_gateway_rest_api_vpc_endpoint_ids) : null
   }
 }
