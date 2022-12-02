@@ -55,6 +55,11 @@ describe 'REST API' do
                 [:endpoint_configuration, 0, :vpc_endpoint_ids], a_nil_value
               ))
     end
+
+    it 'outputs redeployment triggers' do
+      expect(@plan)
+        .to(include_output_creation(name: 'api_gateway_redeployment_triggers'))
+    end
   end
 
   describe 'when api_gateway_rest_api_endpoint_type provided' do
