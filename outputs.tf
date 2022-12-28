@@ -16,7 +16,7 @@ output "api_gateway_rest_api_id" {
 }
 
 output "api_gateway_rest_api_root_resource_id" {
-  description = "The resource ID of the REST API's root"
+  description = "The resource ID of the REST API's root."
   value       = aws_api_gateway_rest_api.api.root_resource_id
 }
 

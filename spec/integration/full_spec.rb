@@ -8,7 +8,10 @@ describe 'full' do
   end
 
   after(:context) do
-    destroy(role: :full)
+    destroy(
+      role: :full,
+      only_if: -> { !ENV['FORCE_DESTROY'].nil? || ENV['SEED'].nil? }
+    )
   end
 
   let(:api_gateway_rest_api_name) do

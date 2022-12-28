@@ -1,5 +1,7 @@
 ## Unreleased
 
+## 2.0.0 (December 28th, 2022)
+
 IMPROVEMENTS
 
 * The root module now optionally supports creating a REST API policy, controlled

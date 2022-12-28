@@ -1,9 +1,9 @@
 variable "region" {
-  description = "The region into which to deploy the API gateway deployment."
+  description = "The region into which to deploy the API gateway domain."
 }
 
 variable "component" {
-  description = "The component for which the API gateway deployment is being created."
+  description = "The component for which the API gateway domain is being created."
 }
 variable "deployment_identifier" {
   description = "An identifier for this instantiation."
