@@ -6,7 +6,15 @@ resource "aws_api_gateway_stage" "stage" {
 
   deployment_id = aws_api_gateway_deployment.deployment.id
 
-  xray_tracing_enabled = var.enable_xray_tracing
+  xray_tracing_enabled = var.enable_api_gateway_stage_xray_tracing
+
+  dynamic "access_log_settings" {
+    for_each = var.enable_api_gateway_stage_access_logging ? toset(["default"]) : toset([])
+    content {
+      format = var.api_gateway_stage_access_logging_log_format
+      destination_arn = coalesce(var.api_gateway_stage_access_logging_log_group_arn, aws_cloudwatch_log_group.access_logs["default"].arn)
+    }
+  }
 
   tags = merge(local.resolved_tags, {
     Stage: var.api_gateway_stage_name

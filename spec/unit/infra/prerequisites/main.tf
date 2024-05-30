@@ -7,6 +7,10 @@ resource "aws_api_gateway_rest_api" "api" {
   }
 }
 
+resource "aws_cloudwatch_log_group" "test" {
+  name = "/${var.component}/${var.deployment_identifier}/api-gateway/testing"
+}
+
 module "certificate" {
   source  = "infrablocks/acm-certificate/aws"
   version = "1.1.0"

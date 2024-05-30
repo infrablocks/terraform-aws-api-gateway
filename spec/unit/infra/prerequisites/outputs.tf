@@ -15,3 +15,7 @@ output "api_gateway_rest_api_id" {
 output "api_gateway_rest_api_root_resource_id" {
   value = aws_api_gateway_rest_api.api.root_resource_id
 }
+
+output "log_group_arn" {
+  value = aws_cloudwatch_log_group.test.arn
+}
