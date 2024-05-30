@@ -20,6 +20,13 @@ variable "api_gateway_redeployment_triggers" {
   type = map(string)
 }
 
+variable "enable_xray_tracing" {
+  description = "Whether tracing is enabled using AWS X-Ray."
+  type = bool
+  default = false
+  nullable = false
+}
+
 variable "tags" {
   description = "A map of tags to add to created infrastructure components."
   type        = map(string)

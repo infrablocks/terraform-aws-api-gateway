@@ -18,5 +18,7 @@ module "deployment" {
   api_gateway_stage_name = var.api_gateway_stage_name
   api_gateway_redeployment_triggers = var.api_gateway_redeployment_triggers
 
+  enable_xray_tracing = var.enable_xray_tracing
+
   tags = var.tags
 }

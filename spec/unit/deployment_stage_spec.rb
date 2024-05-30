@@ -68,6 +68,12 @@ describe 'stage' do
                 )
               ))
     end
+
+    it 'does not enable X-Ray tracing' do
+      expect(@plan)
+        .to(include_resource_creation(type: 'aws_api_gateway_stage')
+              .with_attribute_value(:xray_tracing_enabled, false))
+    end
   end
 
   describe 'when tags provided' do
@@ -147,6 +153,46 @@ describe 'stage' do
         .to(include_output_creation(
               name: 'api_gateway_stage_execution_arn'
             ))
+    end
+  end
+
+  describe 'when enable_xray_tracing is true' do
+    before(:context) do
+      @plan = plan(role: :deployment) do |vars|
+        vars.api_gateway_rest_api_id =
+          output(role: :prerequisites, name: 'api_gateway_rest_api_id')
+        vars.api_gateway_stage_name = 'default'
+        vars.api_gateway_redeployment_triggers = {
+          some_hash: '1234'
+        }
+        vars.enable_xray_tracing = true
+      end
+    end
+
+    it 'enables X-Ray tracing' do
+      expect(@plan)
+        .to(include_resource_creation(type: 'aws_api_gateway_stage')
+              .with_attribute_value(:xray_tracing_enabled, true))
+    end
+  end
+
+  describe 'when enable_xray_tracing is false' do
+    before(:context) do
+      @plan = plan(role: :deployment) do |vars|
+        vars.api_gateway_rest_api_id =
+          output(role: :prerequisites, name: 'api_gateway_rest_api_id')
+        vars.api_gateway_stage_name = 'default'
+        vars.api_gateway_redeployment_triggers = {
+          some_hash: '1234'
+        }
+        vars.enable_xray_tracing = false
+      end
+    end
+
+    it 'does not enable X-Ray tracing' do
+      expect(@plan)
+        .to(include_resource_creation(type: 'aws_api_gateway_stage')
+              .with_attribute_value(:xray_tracing_enabled, false))
     end
   end
 end

@@ -9,6 +9,11 @@ variable "api_gateway_redeployment_triggers" {
   type = map(string)
 }
 
+variable "enable_xray_tracing" {
+  type    = bool
+  default = null
+}
+
 variable "tags" {
   type    = map(string)
   default = null
