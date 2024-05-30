@@ -1,5 +1,21 @@
 ## Unreleased
 
+IMPROVEMENTS
+
+* The `deployment` submodule now supports enabling X-Ray tracing using the
+  `enable_api_gateway_stage_xray_tracing` variable. Tracing is disabled by 
+  default.
+* The `deployment` submodule now supports enabling access logging via the
+  `enable_api_gateway_stage_access_logging` variable. By default, all loggable
+  attributes are logged and a log group is created to contain the logs. The
+  `api_gateway_stage_access_logging_log_format` variable allows the log format
+  to be overridden. The `api_gateway_stage_access_logging_log_group_arn`
+  variable allows the destination log group to be configured. Note that the
+  module managed log group is created regardless of whether access logging is
+  enabled or whether a destination log group is provided. To control whether
+  the module managed log group is created, use the 
+  `include_api_gateway_stage_access_log_log_group`.
+
 ## 2.0.0 (December 28th, 2022)
 
 IMPROVEMENTS
