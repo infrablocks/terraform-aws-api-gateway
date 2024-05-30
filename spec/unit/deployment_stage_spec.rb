@@ -6,7 +6,7 @@ RSpec::Matchers.define_negated_matcher(
   :a_non_nil_value, :a_nil_value
 )
 
-fdescribe 'stage' do
+describe 'stage' do
   let(:component) do
     var(role: :deployment, name: 'component')
   end
