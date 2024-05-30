@@ -262,103 +262,103 @@ describe 'stage' do
                 .with_attribute_value(
                   [:access_log_settings, 0, :format],
                   '{' \
-                    '"accountId": "$context.accountId", ' \
-                    '"apiId": "$context.apiId", ' \
-                    '"authenticate.error": "$context.authenticate.error", ' \
-                    '"authenticate.latency": ' \
-                    '"$context.authenticate.latency", ' \
-                    '"authenticate.status": "$context.authenticate.status", ' \
-                    '"authorize.error": "$context.authorize.error", ' \
-                    '"authorize.latency": "$context.authorize.latency", ' \
-                    '"authorize.status": "$context.authorize.status", ' \
-                    '"authorizer.error": "$context.authorizer.error", ' \
-                    '"authorizer.integrationLatency": ' \
-                    '"$context.authorizer.integrationLatency", ' \
-                    '"authorizer.integrationStatus": ' \
-                    '"$context.authorizer.integrationStatus", ' \
-                    '"authorizer.latency": "$context.authorizer.latency", ' \
-                    '"authorizer.principalId": ' \
-                    '"$context.authorizer.principalId", ' \
-                    '"authorizer.requestId": ' \
-                    '"$context.authorizer.requestId", ' \
-                    '"authorizer.status": "$context.authorizer.status", ' \
-                    '"awsEndpointRequestId": ' \
-                    '"$context.awsEndpointRequestId", ' \
-                    '"customDomain.basePathMatched": ' \
-                    '"$context.customDomain.basePathMatched", ' \
-                    '"deploymentId": "$context.deploymentId", ' \
-                    '"domainName": "$context.domainName", ' \
-                    '"domainPrefix": "$context.domainPrefix", ' \
-                    '"endpointType": "$context.endpointType", ' \
-                    '"error.message": "$context.error.message", ' \
-                    '"error.messageString": "$context.error.messageString", ' \
-                    '"error.responseType": "$context.error.responseType", ' \
-                    '"error.validationErrorString": ' \
-                    '"$context.error.validationErrorString", ' \
-                    '"extendedRequestId": "$context.extendedRequestId", ' \
-                    '"httpMethod": "$context.httpMethod", ' \
-                    '"identity.accountId": "$context.identity.accountId", ' \
-                    '"identity.apiKey": "$context.identity.apiKey", ' \
-                    '"identity.apiKeyId": "$context.identity.apiKeyId", ' \
-                    '"identity.caller": "$context.identity.caller", ' \
-                    '"identity.cognitoAuthenticationProvider": ' \
-                    '"$context.identity.cognitoAuthenticationProvider", ' \
-                    '"identity.cognitoAuthenticationType": ' \
-                    '"$context.identity.cognitoAuthenticationType", ' \
-                    '"identity.cognitoIdentityId": ' \
-                    '"$context.identity.cognitoIdentityId", ' \
-                    '"identity.cognitoIdentityPoolId": ' \
-                    '"$context.identity.cognitoIdentityPoolId", ' \
-                    '"identity.principalOrgId": ' \
-                    '"$context.identity.principalOrgId", ' \
-                    '"identity.sourceIp": "$context.identity.sourceIp", ' \
-                    '"identity.clientCert.clientCertPem": ' \
-                    '"$context.identity.clientCert.clientCertPem", ' \
-                    '"identity.clientCert.subjectDN": ' \
-                    '"$context.identity.clientCert.subjectDN", ' \
-                    '"identity.clientCert.issuerDN": ' \
-                    '"$context.identity.clientCert.issuerDN", ' \
-                    '"identity.clientCert.serialNumber": ' \
-                    '"$context.identity.clientCert.serialNumber", ' \
-                    '"identity.clientCert.validity.notBefore": ' \
-                    '"$context.identity.clientCert.validity.notBefore", ' \
-                    '"identity.clientCert.validity.notAfter": ' \
-                    '"$context.identity.clientCert.validity.notAfter", ' \
-                    '"identity.vpcId": "$context.identity.vpcId", ' \
-                    '"identity.vpceId": "$context.identity.vpceId", ' \
-                    '"identity.user": "$context.identity.user", ' \
-                    '"identity.userAgent": "$context.identity.userAgent", ' \
-                    '"identity.userArn": "$context.identity.userArn", ' \
-                    '"integration.error": "$context.integration.error", ' \
-                    '"integration.integrationStatus": ' \
-                    '"$context.integration.integrationStatus", ' \
-                    '"integration.latency": "$context.integration.latency", ' \
-                    '"integration.requestId": ' \
-                    '"$context.integration.requestId", ' \
-                    '"integration.status": "$context.integration.status", ' \
-                    '"integrationLatency": "$context.integrationLatency", ' \
-                    '"integrationStatus": "$context.integrationStatus", ' \
-                    '"isCanaryRequest": "$context.isCanaryRequest", ' \
-                    '"path": "$context.path", ' \
-                    '"protocol": "$context.protocol", ' \
-                    '"requestId": "$context.requestId", ' \
-                    '"responseLength": "$context.responseLength", ' \
-                    '"responseLatency": "$context.responseLatency", ' \
-                    '"responseOverride.status": ' \
-                    '"$context.responseOverride.status", ' \
-                    '"requestTime": "$context.requestTime", ' \
-                    '"requestTimeEpoch": "$context.requestTimeEpoch", ' \
-                    '"resourceId": "$context.resourceId", ' \
-                    '"resourcePath": "$context.resourcePath", ' \
-                    '"stage": "$context.stage", ' \
-                    '"status": "$context.status", ' \
-                    '"waf.error": "$context.waf.error", ' \
-                    '"waf.latency": "$context.waf.latency", ' \
-                    '"waf.status": "$context.waf.status", ' \
-                    '"wafResponseCode": "$context.wafResponseCode", ' \
-                    '"webaclArn": "$context.webaclArn", ' \
-                    '"xrayTraceId": "$context.xrayTraceId"' \
-                    '}'
+                  '"accountId": "$context.accountId", ' \
+                  '"apiId": "$context.apiId", ' \
+                  '"authenticate.error": "$context.authenticate.error", ' \
+                  '"authenticate.latency": ' \
+                  '"$context.authenticate.latency", ' \
+                  '"authenticate.status": "$context.authenticate.status", ' \
+                  '"authorize.error": "$context.authorize.error", ' \
+                  '"authorize.latency": "$context.authorize.latency", ' \
+                  '"authorize.status": "$context.authorize.status", ' \
+                  '"authorizer.error": "$context.authorizer.error", ' \
+                  '"authorizer.integrationLatency": ' \
+                  '"$context.authorizer.integrationLatency", ' \
+                  '"authorizer.integrationStatus": ' \
+                  '"$context.authorizer.integrationStatus", ' \
+                  '"authorizer.latency": "$context.authorizer.latency", ' \
+                  '"authorizer.principalId": ' \
+                  '"$context.authorizer.principalId", ' \
+                  '"authorizer.requestId": ' \
+                  '"$context.authorizer.requestId", ' \
+                  '"authorizer.status": "$context.authorizer.status", ' \
+                  '"awsEndpointRequestId": ' \
+                  '"$context.awsEndpointRequestId", ' \
+                  '"customDomain.basePathMatched": ' \
+                  '"$context.customDomain.basePathMatched", ' \
+                  '"deploymentId": "$context.deploymentId", ' \
+                  '"domainName": "$context.domainName", ' \
+                  '"domainPrefix": "$context.domainPrefix", ' \
+                  '"endpointType": "$context.endpointType", ' \
+                  '"error.message": "$context.error.message", ' \
+                  '"error.messageString": "$context.error.messageString", ' \
+                  '"error.responseType": "$context.error.responseType", ' \
+                  '"error.validationErrorString": ' \
+                  '"$context.error.validationErrorString", ' \
+                  '"extendedRequestId": "$context.extendedRequestId", ' \
+                  '"httpMethod": "$context.httpMethod", ' \
+                  '"identity.accountId": "$context.identity.accountId", ' \
+                  '"identity.apiKey": "$context.identity.apiKey", ' \
+                  '"identity.apiKeyId": "$context.identity.apiKeyId", ' \
+                  '"identity.caller": "$context.identity.caller", ' \
+                  '"identity.cognitoAuthenticationProvider": ' \
+                  '"$context.identity.cognitoAuthenticationProvider", ' \
+                  '"identity.cognitoAuthenticationType": ' \
+                  '"$context.identity.cognitoAuthenticationType", ' \
+                  '"identity.cognitoIdentityId": ' \
+                  '"$context.identity.cognitoIdentityId", ' \
+                  '"identity.cognitoIdentityPoolId": ' \
+                  '"$context.identity.cognitoIdentityPoolId", ' \
+                  '"identity.principalOrgId": ' \
+                  '"$context.identity.principalOrgId", ' \
+                  '"identity.sourceIp": "$context.identity.sourceIp", ' \
+                  '"identity.clientCert.clientCertPem": ' \
+                  '"$context.identity.clientCert.clientCertPem", ' \
+                  '"identity.clientCert.subjectDN": ' \
+                  '"$context.identity.clientCert.subjectDN", ' \
+                  '"identity.clientCert.issuerDN": ' \
+                  '"$context.identity.clientCert.issuerDN", ' \
+                  '"identity.clientCert.serialNumber": ' \
+                  '"$context.identity.clientCert.serialNumber", ' \
+                  '"identity.clientCert.validity.notBefore": ' \
+                  '"$context.identity.clientCert.validity.notBefore", ' \
+                  '"identity.clientCert.validity.notAfter": ' \
+                  '"$context.identity.clientCert.validity.notAfter", ' \
+                  '"identity.vpcId": "$context.identity.vpcId", ' \
+                  '"identity.vpceId": "$context.identity.vpceId", ' \
+                  '"identity.user": "$context.identity.user", ' \
+                  '"identity.userAgent": "$context.identity.userAgent", ' \
+                  '"identity.userArn": "$context.identity.userArn", ' \
+                  '"integration.error": "$context.integration.error", ' \
+                  '"integration.integrationStatus": ' \
+                  '"$context.integration.integrationStatus", ' \
+                  '"integration.latency": "$context.integration.latency", ' \
+                  '"integration.requestId": ' \
+                  '"$context.integration.requestId", ' \
+                  '"integration.status": "$context.integration.status", ' \
+                  '"integrationLatency": "$context.integrationLatency", ' \
+                  '"integrationStatus": "$context.integrationStatus", ' \
+                  '"isCanaryRequest": "$context.isCanaryRequest", ' \
+                  '"path": "$context.path", ' \
+                  '"protocol": "$context.protocol", ' \
+                  '"requestId": "$context.requestId", ' \
+                  '"responseLength": "$context.responseLength", ' \
+                  '"responseLatency": "$context.responseLatency", ' \
+                  '"responseOverride.status": ' \
+                  '"$context.responseOverride.status", ' \
+                  '"requestTime": "$context.requestTime", ' \
+                  '"requestTimeEpoch": "$context.requestTimeEpoch", ' \
+                  '"resourceId": "$context.resourceId", ' \
+                  '"resourcePath": "$context.resourcePath", ' \
+                  '"stage": "$context.stage", ' \
+                  '"status": "$context.status", ' \
+                  '"waf.error": "$context.waf.error", ' \
+                  '"waf.latency": "$context.waf.latency", ' \
+                  '"waf.status": "$context.waf.status", ' \
+                  '"wafResponseCode": "$context.wafResponseCode", ' \
+                  '"webaclArn": "$context.webaclArn", ' \
+                  '"xrayTraceId": "$context.xrayTraceId"' \
+                  '}'
                 ))
       end
       # rubocop:enable RSpec/ExampleLength
@@ -376,7 +376,6 @@ describe 'stage' do
           }
           vars.api_gateway_stage_access_logging_log_group_arn = @log_group_arn
           vars.enable_api_gateway_stage_access_logging = true
-
         end
       end
 
@@ -385,7 +384,8 @@ describe 'stage' do
           .to(include_resource_creation(type: 'aws_api_gateway_stage')
                 .with_attribute_value(
                   [:access_log_settings, 0, :destination_arn],
-                  @log_group_arn))
+                  @log_group_arn
+                ))
       end
     end
   end
