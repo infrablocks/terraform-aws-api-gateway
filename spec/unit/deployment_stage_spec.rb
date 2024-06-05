@@ -42,14 +42,14 @@ describe 'stage' do
     end
 
     it 'includes the component, deployment identifier and default API name ' \
-         'in the description' do
+       'in the description' do
       expect(@plan)
         .to(include_resource_creation(type: 'aws_api_gateway_stage')
               .with_attribute_value(
                 :description,
                 including(component)
                   .and(including(deployment_identifier)
-                         .and(including("default")))
+                         .and(including('default')))
               ))
     end
 
@@ -106,13 +106,14 @@ describe 'stage' do
     end
 
     it 'includes the component, deployment identifier, stage and API name in ' \
-         'the log group name' do
+       'the log group name' do
       expect(@plan)
         .to(include_resource_creation(type: 'aws_cloudwatch_log_group')
               .with_attribute_value(
                 :name,
                 "/#{component}/#{deployment_identifier}/api-gateway/" \
-                  "default/#{@api_gateway_stage_name}"))
+                "default/#{@api_gateway_stage_name}"
+              ))
     end
   end
 
@@ -132,13 +133,14 @@ describe 'stage' do
     end
 
     it 'includes the component, deployment identifier, stage and API name in ' \
-         'the log group name' do
+       'the log group name' do
       expect(@plan)
         .to(include_resource_creation(type: 'aws_cloudwatch_log_group')
               .with_attribute_value(
                 :name,
                 "/#{component}/#{deployment_identifier}/api-gateway/" \
-                  "#{@api_name}/#{@api_gateway_stage_name}"))
+                "#{@api_name}/#{@api_gateway_stage_name}"
+              ))
     end
   end
 

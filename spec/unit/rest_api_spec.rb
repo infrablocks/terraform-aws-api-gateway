@@ -21,7 +21,7 @@ describe 'REST API' do
     end
 
     it 'includes component, deployment identifier and default API name in ' \
-         'the REST API name' do
+       'the REST API name' do
       expect(@plan)
         .to(include_resource_creation(type: 'aws_api_gateway_rest_api')
               .with_attribute_value(
@@ -30,14 +30,14 @@ describe 'REST API' do
     end
 
     it 'includes component, deployment identifier and default API name in ' \
-         'the REST API description' do
+       'the REST API description' do
       expect(@plan)
         .to(include_resource_creation(type: 'aws_api_gateway_rest_api')
               .with_attribute_value(
                 :description,
                 including(component)
                   .and(including(deployment_identifier)
-                         .and(including("default")))
+                         .and(including('default')))
               ))
     end
 
@@ -73,7 +73,7 @@ describe 'REST API' do
     end
 
     it 'includes component, deployment identifier and provided API name in ' \
-         'the REST API name' do
+       'the REST API name' do
       expect(@plan)
         .to(include_resource_creation(type: 'aws_api_gateway_rest_api')
               .with_attribute_value(
@@ -82,7 +82,7 @@ describe 'REST API' do
     end
 
     it 'includes component, deployment identifier and provided API name in ' \
-         'the REST API description' do
+       'the REST API description' do
       expect(@plan)
         .to(include_resource_creation(type: 'aws_api_gateway_rest_api')
               .with_attribute_value(
