@@ -8,6 +8,11 @@ variable "component" {
 variable "deployment_identifier" {
   description = "An identifier for this instantiation."
 }
+variable "api_name" {
+  description = "The name of the API within the component or service. Used within resource descriptions and as part of created log group name."
+  default = "default"
+  nullable = false
+}
 
 variable "api_gateway_rest_api_id" {
   description = "The ID of the API gateway REST API for which this deployment is being managed."

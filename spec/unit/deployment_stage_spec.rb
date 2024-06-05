@@ -19,7 +19,7 @@ describe 'stage' do
 
   describe 'by default' do
     before(:context) do
-      @api_gateway_stage_name = 'default'
+      @api_gateway_stage_name = 'stage'
       @plan = plan(role: :deployment) do |vars|
         vars.api_gateway_rest_api_id =
           output(role: :prerequisites, name: 'api_gateway_rest_api_id')
@@ -41,13 +41,15 @@ describe 'stage' do
               .with_attribute_value(:rest_api_id, api_gateway_rest_api_id))
     end
 
-    it 'includes the component and deployment identifier in the description' do
+    it 'includes the component, deployment identifier and default API name ' \
+         'in the description' do
       expect(@plan)
         .to(include_resource_creation(type: 'aws_api_gateway_stage')
               .with_attribute_value(
                 :description,
                 including(component)
-                  .and(including(deployment_identifier))
+                  .and(including(deployment_identifier)
+                         .and(including("default")))
               ))
     end
 
@@ -69,7 +71,18 @@ describe 'stage' do
               .with_attribute_value(
                 :tags,
                 a_hash_including(
-                  Stage: 'default'
+                  Stage: @api_gateway_stage_name
+                )
+              ))
+    end
+
+    it 'includes an API name tag' do
+      expect(@plan)
+        .to(include_resource_creation(type: 'aws_api_gateway_stage')
+              .with_attribute_value(
+                :tags,
+                a_hash_including(
+                  ApiName: 'default'
                 )
               ))
     end
@@ -92,26 +105,40 @@ describe 'stage' do
               .once)
     end
 
-    it 'includes the component in the log group name' do
-      expect(@plan)
-        .to(include_resource_creation(type: 'aws_cloudwatch_log_group')
-              .with_attribute_value(:name, match(/.*#{component}.*/)))
-    end
-
-    it 'includes the deployment identifier in the log group name' do
+    it 'includes the component, deployment identifier, stage and API name in ' \
+         'the log group name' do
       expect(@plan)
         .to(include_resource_creation(type: 'aws_cloudwatch_log_group')
               .with_attribute_value(
-                :name, match(/.*#{deployment_identifier}.*/)
-              ))
+                :name,
+                "/#{component}/#{deployment_identifier}/api-gateway/" \
+                  "default/#{@api_gateway_stage_name}"))
+    end
+  end
+
+  describe 'when api_name provided' do
+    before(:context) do
+      @api_gateway_stage_name = 'default'
+      @api_name = 'rest-api'
+      @plan = plan(role: :deployment) do |vars|
+        vars.api_gateway_rest_api_id =
+          output(role: :prerequisites, name: 'api_gateway_rest_api_id')
+        vars.api_gateway_stage_name = @api_gateway_stage_name
+        vars.api_name = @api_name
+        vars.api_gateway_redeployment_triggers = {
+          some_hash: '1234'
+        }
+      end
     end
 
-    it 'includes the stage name in the log group name' do
+    it 'includes the component, deployment identifier, stage and API name in ' \
+         'the log group name' do
       expect(@plan)
         .to(include_resource_creation(type: 'aws_cloudwatch_log_group')
               .with_attribute_value(
-                :name, match(/.*#{@api_gateway_stage_name}.*/)
-              ))
+                :name,
+                "/#{component}/#{deployment_identifier}/api-gateway/" \
+                  "#{@api_name}/#{@api_gateway_stage_name}"))
     end
   end
 
@@ -150,6 +177,17 @@ describe 'stage' do
                 :tags,
                 a_hash_including(
                   Stage: 'default'
+                )
+              ))
+    end
+
+    it 'includes an API name tag' do
+      expect(@plan)
+        .to(include_resource_creation(type: 'aws_api_gateway_stage')
+              .with_attribute_value(
+                :tags,
+                a_hash_including(
+                  ApiName: 'default'
                 )
               ))
     end

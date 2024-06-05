@@ -20,22 +20,24 @@ describe 'REST API' do
         .to(include_resource_creation(type: 'aws_api_gateway_rest_api'))
     end
 
-    it 'includes component and deployment identifier in the REST API name' do
+    it 'includes component, deployment identifier and default API name in ' \
+         'the REST API name' do
       expect(@plan)
         .to(include_resource_creation(type: 'aws_api_gateway_rest_api')
               .with_attribute_value(
-                :name, "api-#{component}-#{deployment_identifier}"
+                :name, "api-#{component}-#{deployment_identifier}-default"
               ))
     end
 
-    it 'includes component and deployment identifier in the REST API ' \
-       'description' do
+    it 'includes component, deployment identifier and default API name in ' \
+         'the REST API description' do
       expect(@plan)
         .to(include_resource_creation(type: 'aws_api_gateway_rest_api')
               .with_attribute_value(
                 :description,
                 including(component)
-                  .and(including(deployment_identifier))
+                  .and(including(deployment_identifier)
+                         .and(including("default")))
               ))
     end
 
@@ -59,6 +61,36 @@ describe 'REST API' do
     it 'outputs redeployment triggers' do
       expect(@plan)
         .to(include_output_creation(name: 'api_gateway_redeployment_triggers'))
+    end
+  end
+
+  describe 'when api_name provided' do
+    before(:context) do
+      @api_name = 'rest-api'
+      @plan = plan(role: :root) do |vars|
+        vars.api_name = @api_name
+      end
+    end
+
+    it 'includes component, deployment identifier and provided API name in ' \
+         'the REST API name' do
+      expect(@plan)
+        .to(include_resource_creation(type: 'aws_api_gateway_rest_api')
+              .with_attribute_value(
+                :name, "api-#{component}-#{deployment_identifier}-rest-api"
+              ))
+    end
+
+    it 'includes component, deployment identifier and provided API name in ' \
+         'the REST API description' do
+      expect(@plan)
+        .to(include_resource_creation(type: 'aws_api_gateway_rest_api')
+              .with_attribute_value(
+                :description,
+                including(component)
+                  .and(including(deployment_identifier)
+                         .and(including(@api_name)))
+              ))
     end
   end
 

@@ -1,5 +1,5 @@
 resource "aws_api_gateway_stage" "stage" {
-  description = "Stage: ${var.api_gateway_stage_name} for component: ${var.component} and deployment identifier: ${var.deployment_identifier}."
+  description = "Stage: ${var.api_gateway_stage_name} for API: ${var.api_name} of component: ${var.component} and deployment identifier: ${var.deployment_identifier}."
 
   rest_api_id = var.api_gateway_rest_api_id
   stage_name = var.api_gateway_stage_name
@@ -17,6 +17,7 @@ resource "aws_api_gateway_stage" "stage" {
   }
 
   tags = merge(local.resolved_tags, {
-    Stage: var.api_gateway_stage_name
+    ApiName: var.api_name,
+    Stage: var.api_gateway_stage_name,
   })
 }

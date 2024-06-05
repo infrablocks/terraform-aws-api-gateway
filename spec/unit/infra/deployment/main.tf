@@ -13,6 +13,7 @@ module "deployment" {
 
   component             = var.component
   deployment_identifier = var.deployment_identifier
+  api_name              = var.api_name
 
   api_gateway_rest_api_id           = var.api_gateway_rest_api_id
   api_gateway_stage_name            = var.api_gateway_stage_name
@@ -23,7 +24,7 @@ module "deployment" {
 
   include_api_gateway_stage_access_log_log_group = var.include_api_gateway_stage_access_log_log_group
 
-  enable_api_gateway_stage_xray_tracing = var.enable_api_gateway_stage_xray_tracing
+  enable_api_gateway_stage_xray_tracing   = var.enable_api_gateway_stage_xray_tracing
   enable_api_gateway_stage_access_logging = var.enable_api_gateway_stage_access_logging
 
   tags = var.tags

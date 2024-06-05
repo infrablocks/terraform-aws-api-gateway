@@ -10,6 +10,12 @@ variable "deployment_identifier" {
   description = "An identifier for this instantiation."
 }
 
+variable "api_name" {
+  description = "The name of the API within the component or service. Used as part of naming the REST API resource."
+  default = "default"
+  nullable = false
+}
+
 variable "api_gateway_rest_api_endpoint_type" {
   description = "The type of the endpoints in this REST API. Valid values: EDGE, REGIONAL or PRIVATE. Defaults to EDGE."
   default     = "EDGE"
