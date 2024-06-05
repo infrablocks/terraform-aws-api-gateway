@@ -15,6 +15,8 @@ IMPROVEMENTS
   enabled or whether a destination log group is provided. To control whether
   the module managed log group is created, use the 
   `include_api_gateway_stage_access_log_log_group`.
+* An optional `api_name` variable has been added to the root module and the
+  deployment module for using in names, descriptions and log group naming.
 
 ## 2.0.0 (December 28th, 2022)
 
